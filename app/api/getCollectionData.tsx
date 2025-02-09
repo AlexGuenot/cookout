@@ -1,19 +1,20 @@
 import { connectToDatabase } from '@/app/api/lib/mongodb';
-import { Team } from '@/app/api/interface';
+import { Recipe } from '@/app/api/interface';
 
-export async function getCollectionData(): Promise<Team[]> {
+export async function getCollectionData(): Promise<Recipe[]> {
     try {
       const db = await connectToDatabase();
-      const teams = await db.collection<Team>('teams').find().toArray();
+      const recipes = await db.collection<Recipe>('recipes').find().toArray();
 
-      const formattedTeams = teams.map(team => ({
-        ...team,
-        _id: team._id.toString(),
+      const formattedRecipes = recipes.map(recipe => ({
+        ...recipe,
+        _id: recipe._id.toString(),
       }));
 
-      return formattedTeams;
+      return formattedRecipes;
     } catch (error) {
-      console.error("Error fetching teams:", error);
+      console.error("Error fetching recipes:", error);
       return [];
     }
   }
+

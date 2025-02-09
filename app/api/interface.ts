@@ -1,7 +1,12 @@
-interface Team {
+interface Recipe {
     _id: string;
     name: string;
-    // ... other team properties
+    ingredients : string[];
+    instructions : string[];
+    prep_time : string;
+    cook_time : string;
+    tags : string[];
+    isLiked : boolean;
   }
 
-  export type { Team }; // Export the Team type
+  export type { Recipe }; // Export the Team type

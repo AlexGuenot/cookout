@@ -5,10 +5,10 @@ import { getCollectionData } from '@/app/api/getCollectionData'; // Adjust the i
 
 export async function GET() {
   try {
-    const teams = await getCollectionData();
-    return NextResponse.json(teams, { status: 200 });
+    const recipes = await getCollectionData();
+    return NextResponse.json(recipes, { status: 200 });
   } catch (error) {
-    console.error("Error fetching teams:", error);
+    console.error("Error fetching recipes:", error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
